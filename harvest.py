@@ -76,8 +76,14 @@ def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
 
     # Fill in the rest
+    melons_by_id = {}
+    for melon in melon_types:
+        if melon.code not in melons_by_id:
+            melons_by_id[melon.code] = melon
 
+    return melons_by_id
 
+melons_by_id = make_melon_type_lookup(melons)
 ############
 # Part 2   #
 ############
